@@ -3,7 +3,159 @@ var Common = require('./common.js');
 exports.Step1 = {
 
     setEmail: function (emailPrefix) {
-        Common.getFirstElement(by.model('signup.contact.email')).sendKeys(emailPrefix  + Common.getRandomNum(1,1000) + "@automation.com");
+        Common.getFirstElement(by.model('signup.contact.email')).sendKeys(emailPrefix + Common.getRandomNum(1, 1000) + "@automation.com");
+    },
+
+    selectMembership: function (membership) {
+        membership = "TR-I-A1-45-M";
+        var memDetail = membership.split("-");
+
+        var membership = memDetail[0];
+        var type = memDetail[1];
+        var term = memDetail[2];
+        var tripOrPlan = memDetail[3]; //trip in case of travel, plan in case of totalcare
+        var security = memDetail[4];
+
+        switch (membership.toLowerCase()) {
+            case "tr": {
+                selectTravelMembership();
+
+                switch (type.toLowerCase()) {
+                    case "i": {
+                        selectTravelIndividualType();
+                    }
+                    break;
+                    case "f": {
+                        selectTravelFamilyType();
+                    }
+                    break;
+                    case "s": {
+                        selectTravelStudentType();
+                    }
+                    break;
+                    case "a": {
+                    }
+                    break;
+                }
+
+                switch (term.toLowerCase()) {
+                    case "a1": {
+                        selectTravel1YearTerm();
+                    }
+                    break;
+                    case "a2": {
+                        selectTravel2YearTerm();
+                    }
+                    break;
+                    case "a3": {
+                        selectTravel3YearTerm();
+                    }
+                    break;
+                    case "a4": {
+                        selectTravel4YearTerm();
+                    }
+                    break;
+                    case "a5": {
+                        selectTravel5YearTerm();
+                    }
+                    break;
+                    case "s7": {
+                        selectTravel7DaysTerm();
+                    }
+                    break;
+                    case "s14": {
+                        selectTravel14DaysTerm();
+                    }
+                    break;
+                    case "s30": {
+                        selectTravel30DaysTerm();
+                    }
+                    break;
+                }
+
+                switch (tripOrPlan.toLowerCase()) {
+                    case "45": {
+                        selectTravel45DaysTrip();
+                    }
+                    break;
+                    case "90": {
+                        selectTravel90DaysTrip();
+                    }
+                    break;
+                    case "180": {
+                        selectTravel180DaysTrip();
+                    }
+                    break;
+                    case "365": {
+                        selectTravel4YearTerm();
+                    }
+                    break;
+                }
+
+                if (security.toLowerCase() == 'm') {
+                    selectTravelSecurity();
+                }
+            }
+            break;
+            case "tc": {
+                selectTotalCareMembership();
+                switch (tripOrPlan.toLowerCase()) {
+                    case "u": {
+                        selectUnlimitedPlan();
+                    }
+                    break;
+                    case "p": {
+                        selectPlatinumPlan();
+                    }
+                    break;
+                    case "g": {
+                        selectGoldPlan();
+                    }
+                    break;
+                    case "s": {
+                        selectSilverPlan();
+                    }
+                    break;
+                }
+
+                switch (type.toLowerCase()) {
+                    case "i": {
+                        selectTCIndividualType();
+                    }
+                    break;
+                    case "f": {
+                        selectTCFamilyType();
+                    }
+                    break;
+                }
+
+                switch (term.toLowerCase()) {
+                    case "a1": {
+                        selectTC1YearTerm();
+                    }
+                    break;
+                    case "a2": {
+                        selectTC2YearTerm();
+                    }
+                    break;
+                    case "a3": {
+                        selectTC3YearTerm();
+                    }
+                    break;
+                    case "a4": {
+                        selectTC4YearTerm();
+                    }
+                    break;
+                    case "a5": {
+                        selectTC5YearTerm();
+                    }
+                    break;
+                }
+            }
+            break;
+        }
+
+
     },
 
     selectTravelMembership: function () {
