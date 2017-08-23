@@ -15,10 +15,12 @@ exports.Step2 = {
     },
 
     setDOB : function(dobirth) {
+        Common.getFirstElement(by.model('signup.contact.displayDob')).click();
         Common.getFirstElement(by.model('signup.contact.displayDob')).sendKeys(dobirth);
     },
 
     setMembershipStartDate : function(mstartdate) {
+        Common.getFirstElement(by.model('signup.contract.displayMembershipStartDate')).click();
         Common.getFirstElement(by.model('signup.contract.displayMembershipStartDate')).sendKeys(mstartdate);
     },
 
@@ -26,18 +28,19 @@ exports.Step2 = {
         Common.getFirstElement(by.model('signup.satellitePhone.number')).sendKeys(sphone);
     },
 
-    setFemalegender : function(fgender) {
-        Common.element(by.css('[ng-class="{active: signup.contact.gender == CONSTANTS.GENDER.FEMALE}"]')).click();
+    setFemalegender : function() {
+        Common.getFirstElement(by.css('[ng-class="{active: signup.contact.gender == CONSTANTS.GENDER.FEMALE}"]')).click();
     },
 
-    setMalegender : function(mgender) {
-        Common.element(by.css('[ng-class="{active: signup.contact.gender == CONSTANTS.GENDER.MALE}"]')).click();
+    setMalegender : function() {
+        Common.getFirstElement(by.css('[ng-class="{active: signup.contact.gender == CONSTANTS.GENDER.MALE}"]')).click();
     },
 
-    setResidenceAddress : function(raddress) {
-        Common.element(by.model('addressObject.selectedAddress'));
+    setResidenceAddress : function() {
+        Common.getFirstElement(by.model('addressObject.selectedAddress')).click();
+        
     },
-
+    
     submit : function() {
         Common.getFirstElement(by.css('button[ng-click*="submit()"]')).click();
     }

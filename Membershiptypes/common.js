@@ -15,3 +15,21 @@ exports.getFirstElement = function(selector) {
 exports.getRandomNum = function (min, max) {
     return parseInt(Math.random() * (max - min) + min);
 }
+
+exports.getaddress = function (text, index) {
+    //element(by.id("completeAddress")).click();
+      browser.actions()
+      .mouseMove(element(by.model("addressObject.selectedAddress"))
+      .sendKeys(text))
+      .perform().then(function(){
+        browser.sleep(2000);
+        // press the down arrow for the autocomplete item we want to choose
+        for(i = 0; i < index ; i++){
+
+            browser.actions().sendKeys(protractor.Key.ARROW_DOWN).perform();
+        }
+        browser.sleep(1000);
+        browser.actions().sendKeys(protractor.Key.ENTER).perform();
+      });
+      browser.sleep(3000);
+    }
