@@ -1,4 +1,4 @@
-var sasMember = require('../sasMember/tr/tr_ind_1year_45.js');
+var sasMember = require('../sasMember/tr/tr_ind_1year_45_m.js');
 
 browser.driver.manage().window().maximize();
 
