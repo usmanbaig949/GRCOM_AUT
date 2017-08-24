@@ -12,10 +12,8 @@ exports.test = function () {
 
         it('should select travel plan successfully', function () {
             Common.loadSignupPage();
-            Step1.selectTravelMembership();
-            Step1.selectTravelIndividualType();
-            Step1.selectTravel1YearTerm();
-            Step1.selectTravel45DaysTrip();
+            
+            Step1.selectMembership("TR-I-A1-45-X");
             
             Step1.setEmail("test.tr");
             Step1.submit();   
