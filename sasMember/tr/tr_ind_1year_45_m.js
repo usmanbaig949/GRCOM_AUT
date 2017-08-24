@@ -16,6 +16,7 @@ exports.test = function () {
             Step1.selectTravelIndividualType();
             Step1.selectTravel1YearTerm();
             Step1.selectTravel45DaysTrip();
+            
             Step1.setEmail("test.tr");
             Step1.submit();   
             browser.waitForAngularEnabled(true);

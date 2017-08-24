@@ -7,7 +7,7 @@ exports.Step1 = {
     },
 
     selectMembership: function (membership) {
-        membership = "TR-I-A1-45-M";
+        //membership = "TR-I-A1-45-M";
         var memDetail = membership.split("-");
 
         var membership = memDetail[0];
@@ -18,19 +18,19 @@ exports.Step1 = {
 
         switch (membership.toLowerCase()) {
             case "tr": {
-                selectTravelMembership();
+                this.selectTravelMembership();
 
                 switch (type.toLowerCase()) {
                     case "i": {
-                        selectTravelIndividualType();
+                        this.selectTravelIndividualType();
                     }
                     break;
                     case "f": {
-                        selectTravelFamilyType();
+                        this.selectTravelFamilyType();
                     }
                     break;
                     case "s": {
-                        selectTravelStudentType();
+                        this.selectTravelStudentType();
                     }
                     break;
                     case "a": {
@@ -40,122 +40,120 @@ exports.Step1 = {
 
                 switch (term.toLowerCase()) {
                     case "a1": {
-                        selectTravel1YearTerm();
+                        this.selectTravel1YearTerm();
                     }
                     break;
                     case "a2": {
-                        selectTravel2YearTerm();
+                        this.selectTravel2YearTerm();
                     }
                     break;
                     case "a3": {
-                        selectTravel3YearTerm();
+                        this.selectTravel3YearTerm();
                     }
                     break;
                     case "a4": {
-                        selectTravel4YearTerm();
+                        this.selectTravel4YearTerm();
                     }
                     break;
                     case "a5": {
-                        selectTravel5YearTerm();
+                        this.selectTravel5YearTerm();
                     }
                     break;
                     case "s7": {
-                        selectTravel7DaysTerm();
+                        this.selectTravel7DaysTerm();
                     }
                     break;
                     case "s14": {
-                        selectTravel14DaysTerm();
+                        this.selectTravel14DaysTerm();
                     }
                     break;
                     case "s30": {
-                        selectTravel30DaysTerm();
+                        this.selectTravel30DaysTerm();
                     }
                     break;
                 }
 
                 switch (tripOrPlan.toLowerCase()) {
                     case "45": {
-                        selectTravel45DaysTrip();
+                        this.selectTravel45DaysTrip();
                     }
                     break;
                     case "90": {
-                        selectTravel90DaysTrip();
+                        this.selectTravel90DaysTrip();
                     }
                     break;
                     case "180": {
-                        selectTravel180DaysTrip();
+                        this.selectTravel180DaysTrip();
                     }
                     break;
                     case "365": {
-                        selectTravel4YearTerm();
+                        this.selectTravel4YearTerm();
                     }
                     break;
                 }
 
                 if (security.toLowerCase() == 'm') {
-                    selectTravelSecurity();
+                    this.selectTravelSecurity();
                 }
             }
             break;
             case "tc": {
-                selectTotalCareMembership();
+                this.selectTotalCareMembership();
                 switch (tripOrPlan.toLowerCase()) {
                     case "u": {
-                        selectUnlimitedPlan();
+                        this.selectUnlimitedPlan();
                     }
                     break;
                     case "p": {
-                        selectPlatinumPlan();
+                        this.selectPlatinumPlan();
                     }
                     break;
                     case "g": {
-                        selectGoldPlan();
+                        this.selectGoldPlan();
                     }
                     break;
                     case "s": {
-                        selectSilverPlan();
+                        this.selectSilverPlan();
                     }
                     break;
                 }
 
                 switch (type.toLowerCase()) {
                     case "i": {
-                        selectTCIndividualType();
+                        this.selectTCIndividualType();
                     }
                     break;
                     case "f": {
-                        selectTCFamilyType();
+                        this.selectTCFamilyType();
                     }
                     break;
                 }
 
                 switch (term.toLowerCase()) {
                     case "a1": {
-                        selectTC1YearTerm();
+                        this.selectTC1YearTerm();
                     }
                     break;
                     case "a2": {
-                        selectTC2YearTerm();
+                        this.selectTC2YearTerm();
                     }
                     break;
                     case "a3": {
-                        selectTC3YearTerm();
+                        this.selectTC3YearTerm();
                     }
                     break;
                     case "a4": {
-                        selectTC4YearTerm();
+                        this.selectTC4YearTerm();
                     }
                     break;
                     case "a5": {
-                        selectTC5YearTerm();
+                        this.selectTC5YearTerm();
                     }
                     break;
                 }
             }
             break;
         }
-
-
     },
 
     selectTravelMembership: function () {
