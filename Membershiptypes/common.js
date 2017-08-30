@@ -17,7 +17,6 @@ exports.getRandomNum = function (min, max) {
 }
 
 exports.getaddress = function (text, index) {
-    //element(by.id("completeAddress")).click();
       browser.actions()
       .mouseMove(element(by.model("addressObject.selectedAddress"))
       .sendKeys(text))
@@ -33,3 +32,13 @@ exports.getaddress = function (text, index) {
       });
       browser.sleep(3000);
     }
+
+exports.getalloption = function(allOptions){
+    var allOptions = element(by.model('signup.contact.howDidYouHearAboutUs')).all(by.tagName('option'));
+    
+    allOptions.count().then(function(numberOfItems) {
+        return Math.floor(Math.random() * numberOfItems) + 1;
+    }).then(function(randomNumber) {
+        allOptions.get(randomNumber).click();
+    });
+}
