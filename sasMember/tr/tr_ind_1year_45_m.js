@@ -38,19 +38,16 @@ exports.test = function () {
             browser.waitForAngularEnabled(true);
 
             Step4.setCreditCard("41111111111111111");
-           // Step4.SetCCExpiryMonth("");
             Step4.SetCVV("3432");
             browser.executeScript('window.scrollTo(508,686);').then(function () {
             Step4.clickReferralCode();
-        })
-            
+        }) 
             Step4.setReferralCode("TestAla");
             Step4.AcceptReferralCode();
-            
-            Step4.sethearaboutus(Common.getalloption());
             Step4.setSubscribe();
+            Step4.getOptions();
             Step4.submit();
-
+        
            });
     });
 }

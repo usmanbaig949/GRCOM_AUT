@@ -32,13 +32,12 @@ exports.getaddress = function (text, index) {
       });
       browser.sleep(3000);
     }
-
-exports.getalloption = function(allOptions){
-    var allOptions = element(by.model('signup.contact.howDidYouHearAboutUs')).all(by.tagName('option'));
     
-    allOptions.count().then(function(numberOfItems) {
-        return Math.floor(Math.random() * numberOfItems) + 1;
+   
+    exports.getalloption = function(allOptions){
+        allOptions.count().then(function(numberOfItems) {
+            return Math.floor(Math.random() * numberOfItems) + 1;
     }).then(function(randomNumber) {
-        allOptions.get(randomNumber).click();
+            allOptions.get(randomNumber).click();
     });
 }

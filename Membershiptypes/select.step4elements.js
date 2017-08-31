@@ -6,12 +6,12 @@ exports.Step4 = {
         Common.getFirstElement(by.model('signup.contact.creditCardProfile.creditCardNumber')).sendKeys(CCNum);
     },
 
-    SetCCExpiryMonth: function (EMonth) {
-        Common.getFirstElement(by.model('signup.contact.creditCardProfile.creditCardNumber')).sendKeys(EMonth);
+    SetCCExpiryMonth: function () {
+       var allOptions= Common.getFirstElement(by.model('signup.contact.creditCardProfile.creditCardNumber')).click();
     },
 
-    SetExpiryYear: function (EYear) {
-        Common.getFirstElement(by.model('signup.contact.creditCardProfile.expiryYear')).sendKeys(EYear);
+    SetExpiryYear: function () {
+        Common.getFirstElement(by.model('signup.contact.creditCardProfile.expiryYear')).click();
     },
 
     SetCVV: function (cvv) {
@@ -20,7 +20,6 @@ exports.Step4 = {
 
     clickReferralCode: function () {
        Common.getFirstElement(By.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/div[5]/div[1]/div[1]/div/div/a')).click();  
-       //browser.actions().moveToElement(Common.getFirstElement(By.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/div[5]/div[1]/div[1]/div/div/a'))).click().perform();
     },
 
     setReferralCode: function (rcode) {
@@ -36,7 +35,7 @@ exports.Step4 = {
     },
 
     sethearaboutus: function () {
-        Common.getFirstElement(by.model('signup.contact.howDidYouHearAboutUs'));
+        Common.getFirstElement(by.model('signup.contact.howDidYouHearAboutUs')).click();
     },
 
     setSubscribe: function () {
@@ -45,6 +44,15 @@ exports.Step4 = {
 
     submit : function() {
         Common.getFirstElement(by.css('button[ng-click*="submit()"]')).click();
+    },
+
+    getOptions : function(){
+        var expiryYear = element(by.model('signup.contact.creditCardProfile.expiryYear')).all(by.tagName('option'));
+        var expiryMonth = element(by.model('signup.contact.creditCardProfile.expiryMonth')).all(by.tagName('option'));
+        var allOptions = element(by.model('signup.contact.howDidYouHearAboutUs')).all(by.tagName('option'));
+        Common.getalloption(expiryYear);
+        Common.getalloption(expiryMonth);
+        Common.getalloption(allOptions);
     }
 
 }    
