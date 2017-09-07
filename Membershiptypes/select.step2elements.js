@@ -19,7 +19,21 @@ exports.Step2 = {
         Common.getFirstElement(by.model('signup.contact.displayDob')).sendKeys(dobirth);
     },
 
-    setMembershipStartDate : function(mstartdate) {
+    setMembershipStartDate : function() {
+        var todaydate = new Date();
+        var dd = todaydate.getDate();
+        var mm = todaydate.getMonth() + 1;
+        if(dd<10){
+            dd= '0' +dd
+        }
+        
+        if (mm < 10) 
+        { 
+            mm = '0' + mm; 
+        }
+        var y = todaydate.getFullYear();
+        
+        var mstartdate = mm + '/'+ dd + '/'+ y;
         Common.getFirstElement(by.model('signup.contract.displayMembershipStartDate')).click();
         Common.getFirstElement(by.model('signup.contract.displayMembershipStartDate')).sendKeys(mstartdate);
     },

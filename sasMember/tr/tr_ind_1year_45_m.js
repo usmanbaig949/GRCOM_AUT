@@ -20,22 +20,27 @@ exports.test = function () {
             Step1.selectMembership("TR-I-A1-45-X");            
             Step1.setEmail("test.tr");
             Step1.submit();   
-            browser.waitForAngularEnabled(true);
+            //browser.waitForAngularEnabled(true);
 
             Step2.setFirstName("Test");
             Step2.setLastName("Automation");
             Step2.setPhonenumber("6174594200");
             Step2.setDOB("11/11/1987");
-            Step2.setMembershipStartDate("11/17/2017");
+            Step2.setMembershipStartDate();
             Step2.setSatellitephone("342343242");
             Step2.setFemalegender();
             Step2.setResidenceAddress(Common.getaddress("117 Milk St", 2));
             Step2.submit();   
-            browser.waitForAngularEnabled(true);
 
-            Step3.setTravelInsuranceNo();
+            Step3.setTravelInsuranceYes();
+            //Step3.setMedicalDevice("1");
+            //var ddate = Step3.getDepartDate();
+            //console.log(ddate);
+            Step3.setReturnDate();
+            browser.executeScript('window.scrollTo(508,686);');
+            Step3.setTripCostforPrimaryMember("1000");
+            Step3.getQuote();
             Step3.submit();   
-            browser.waitForAngularEnabled(true);
 
             Step4.setCreditCard("41111111111111111");
             Step4.SetCVV("3432");

@@ -10,16 +10,34 @@ exports.Step3 = {
         Common.getFirstElement(by.css('[ng-class="{active: signup.travelInsurance.travelInsuranceSelected == 1}"]')).click();
     },
 
-  /*  setMedicalDevice: function (quantity) {
-        //Common.getFirstElement(by.model('signup.order.additions[0].quantity')).click();
-        Common.getFirstElement(by.model('signup.order.additions[0].quantity')).sendkeys(quantity);
+    /*setMedicalDevice: function (quantity) {
+        Common.getFirstElement(by.xpath('//*[@id="quantity"]')).click();
+        Common.getFirstElement(by.xpath('//*[@id="quantity"]')).sendkeys(quantity);
     },*/
 
-  /*  getDepartDate: function (ddate) {
-        Common.getFirstElement(by.model('signup.travelInsurance.displayDepartDate')).getText();
+    getDepartDate: function () {
+        Common.getFirstElement(by.model('signup.travelInsurance.displayDepartDate')).getAttribute('value');
     },
 
-    setReturnDate: function (rdate) {
+    setReturnDate: function () {
+        var someDate = new Date();
+        var numberOfDaysToAdd = 15;
+        var rdate= someDate.setDate(someDate.getDate() + numberOfDaysToAdd); 
+        //Formatting to mm/dd/yyyy :
+        var dd = someDate.getDate();
+        var mm = someDate.getMonth() + 1;
+        if(dd < 10) {
+            dd= '0' +dd
+        }
+        
+        if (mm < 10) 
+        { 
+            mm = '0' + mm; 
+        }
+        var y = someDate.getFullYear();
+        
+        var rdate = mm + '/'+ dd + '/'+ y;
+
         Common.getFirstElement(by.model('signup.travelInsurance.displayReturnDate')).click();
         Common.getFirstElement(by.model('signup.travelInsurance.displayReturnDate')).sendKeys(rdate);
     },
@@ -29,17 +47,13 @@ exports.Step3 = {
     },
 
     setTripCostforPrimaryMember: function (tripcost) {
+        Common.getFirstElement(by.xpath('//*[@id="memberTripCost"]')).click();
+        Common.getFirstElement(by.xpath('//*[@id="memberTripCost"]')).sendKeys(tripcost);
+    }, 
 
-        // Number of elements.
-        var index = element.all(Common.getFirstElement(by.id('memberTripCost'))).count();
-        console.log(index);
-        // Get by index (starting at 0).
-        element.all(Common.getFirstElement(by.id('memberTripCost'))).get(index);
-
-        // First and last.
-      //  element.all(Common.getFirstElement(by.id('memberTripCost'))).first().sendkeys(tripcost);
-       // element.all(Common.getFirstElement(by.id('memberTripCost'))).last();
-    }, */
+    getQuote: function() {
+        Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div')).click();
+    },
 
     submit: function () {
         Common.getFirstElement(by.css('button[ng-click*="submit()"]')).click();
