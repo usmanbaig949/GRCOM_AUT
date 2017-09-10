@@ -11,8 +11,7 @@ exports.Step3 = {
     },
 
     /*setMedicalDevice: function (quantity) {
-        Common.getFirstElement(by.xpath('//*[@id="quantity"]')).click();
-        Common.getFirstElement(by.xpath('//*[@id="quantity"]')).sendkeys(quantity);
+        Common.getFirstElement(by.xpath('//*[@id="travel-insurance-skip"]/div[1]/div/div/div[2]/div/div[2]/div/div/div/div/span[4]/button')).click();
     },*/
 
     getDepartDate: function () {
@@ -22,21 +21,20 @@ exports.Step3 = {
     setReturnDate: function () {
         var someDate = new Date();
         var numberOfDaysToAdd = 15;
-        var rdate= someDate.setDate(someDate.getDate() + numberOfDaysToAdd); 
+        var rdate = someDate.setDate(someDate.getDate() + numberOfDaysToAdd);
         //Formatting to mm/dd/yyyy :
         var dd = someDate.getDate();
         var mm = someDate.getMonth() + 1;
-        if(dd < 10) {
-            dd= '0' +dd
+        if (dd < 10) {
+            dd = '0' + dd
         }
-        
-        if (mm < 10) 
-        { 
-            mm = '0' + mm; 
+
+        if (mm < 10) {
+            mm = '0' + mm;
         }
         var y = someDate.getFullYear();
-        
-        var rdate = mm + '/'+ dd + '/'+ y;
+
+        var rdate = mm + '/' + dd + '/' + y;
 
         Common.getFirstElement(by.model('signup.travelInsurance.displayReturnDate')).click();
         Common.getFirstElement(by.model('signup.travelInsurance.displayReturnDate')).sendKeys(rdate);
@@ -49,20 +47,17 @@ exports.Step3 = {
     setTripCostforPrimaryMember: function (tripcost) {
         Common.getFirstElement(by.xpath('//*[@id="memberTripCost"]')).click();
         Common.getFirstElement(by.xpath('//*[@id="memberTripCost"]')).sendKeys(tripcost);
-    }, 
+    },
 
-    getQuote: function() {
+    getQuote: function () {
         Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div')).click();
     },
 
-    submit: function () {
-        Common.getFirstElement(by.css('button[ng-click*="submit()"]')).click();
+    purchaseTI: function () {
+        this.setTravelInsuranceYes();
+        this.setReturnDate();
+        Common.scrolldown();
+        this.setTripCostforPrimaryMember("1000");
+        this.getQuote();
     },
-
-  /*  visibility : function (){
-    var EC = protractor.ExpectedConditions;
-    // Waits for the element with id 'abc' to be visible on the dom.
-    browser.wait(EC.visibilityOf($('memberTripCost')), 10000);
-    }*/
-
 }

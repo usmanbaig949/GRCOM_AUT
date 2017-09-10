@@ -17,11 +17,9 @@ exports.getRandomNum = function (min, max) {
 }
 
 exports.getaddress = function (text, index) {
-      browser.actions()
-      .mouseMove(element(by.model("addressObject.selectedAddress"))
-      .sendKeys(text))
-      .perform().then(function(){
-        browser.sleep(2000);
+      browser.actions().mouseMove(element(by.model("addressObject.selectedAddress")).sendKeys(text)).perform().then(function()
+      {
+        browser.sleep(5000);
         // press the down arrow for the autocomplete item we want to choose
         for(i = 0; i < index ; i++){
 
@@ -40,4 +38,13 @@ exports.getaddress = function (text, index) {
     }).then(function(randomNumber) {
             allOptions.get(randomNumber).click();
     });
+}
+
+exports.scrolldown = function (){
+    browser.executeScript('window.scrollTo(508,686);');
+   
+}
+
+exports.submit = function () {
+    this.getFirstElement(by.css('button[ng-click*="submit()"]')).click();
 }

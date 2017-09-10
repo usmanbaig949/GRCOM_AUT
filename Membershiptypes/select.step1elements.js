@@ -24,135 +24,135 @@ exports.Step1 = {
                     case "i": {
                         this.selectTravelIndividualType();
                     }
-                    break;
+                        break;
                     case "f": {
                         this.selectTravelFamilyType();
                     }
-                    break;
+                        break;
                     case "s": {
                         this.selectTravelStudentType();
                     }
-                    break;
+                        break;
                     case "a": {
                     }
-                    break;
+                        break;
                 }
 
                 switch (term.toLowerCase()) {
                     case "a1": {
                         this.selectTravel1YearTerm();
                     }
-                    break;
+                        break;
                     case "a2": {
                         this.selectTravel2YearTerm();
                     }
-                    break;
+                        break;
                     case "a3": {
                         this.selectTravel3YearTerm();
                     }
-                    break;
+                        break;
                     case "a4": {
                         this.selectTravel4YearTerm();
                     }
-                    break;
+                        break;
                     case "a5": {
                         this.selectTravel5YearTerm();
                     }
-                    break;
+                        break;
                     case "s7": {
                         this.selectTravel7DaysTerm();
                     }
-                    break;
+                        break;
                     case "s14": {
                         this.selectTravel14DaysTerm();
                     }
-                    break;
+                        break;
                     case "s30": {
                         this.selectTravel30DaysTerm();
                     }
-                    break;
+                        break;
                 }
 
                 switch (tripOrPlan.toLowerCase()) {
                     case "45": {
                         this.selectTravel45DaysTrip();
                     }
-                    break;
+                        break;
                     case "90": {
                         this.selectTravel90DaysTrip();
                     }
-                    break;
+                        break;
                     case "180": {
                         this.selectTravel180DaysTrip();
                     }
-                    break;
+                        break;
                     case "365": {
                         this.selectTravel4YearTerm();
                     }
-                    break;
+                        break;
                 }
 
                 if (security.toLowerCase() == 'm') {
                     this.selectTravelSecurity();
                 }
             }
-            break;
+                break;
             case "tc": {
                 this.selectTotalCareMembership();
                 switch (tripOrPlan.toLowerCase()) {
                     case "u": {
                         this.selectUnlimitedPlan();
                     }
-                    break;
+                        break;
                     case "p": {
                         this.selectPlatinumPlan();
                     }
-                    break;
+                        break;
                     case "g": {
                         this.selectGoldPlan();
                     }
-                    break;
+                        break;
                     case "s": {
                         this.selectSilverPlan();
                     }
-                    break;
+                        break;
                 }
 
                 switch (type.toLowerCase()) {
                     case "i": {
                         this.selectTCIndividualType();
                     }
-                    break;
+                        break;
                     case "f": {
                         this.selectTCFamilyType();
                     }
-                    break;
+                        break;
                 }
 
                 switch (term.toLowerCase()) {
                     case "a1": {
                         this.selectTC1YearTerm();
                     }
-                    break;
+                        break;
                     case "a2": {
                         this.selectTC2YearTerm();
                     }
-                    break;
+                        break;
                     case "a3": {
                         this.selectTC3YearTerm();
                     }
-                    break;
+                        break;
                     case "a4": {
                         this.selectTC4YearTerm();
                     }
-                    break;
+                        break;
                     case "a5": {
                         this.selectTC5YearTerm();
                     }
-                    break;
+                        break;
                 }
             }
-            break;
+                break;
         }
     },
 
@@ -300,9 +300,6 @@ exports.Step1 = {
         Common.getFirstElement(by.css('button[ng-click*="changeCoverage()"]')).click();
     },
 
-    submit: function () {
-        Common.getFirstElement(by.css('button[ng-click*="submit()"]')).click();
-    }
 };
 
 

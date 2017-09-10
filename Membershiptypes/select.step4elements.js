@@ -7,7 +7,7 @@ exports.Step4 = {
     },
 
     SetCCExpiryMonth: function () {
-       var allOptions= Common.getFirstElement(by.model('signup.contact.creditCardProfile.creditCardNumber')).click();
+        var allOptions = Common.getFirstElement(by.model('signup.contact.creditCardProfile.creditCardNumber')).click();
     },
 
     SetExpiryYear: function () {
@@ -19,7 +19,7 @@ exports.Step4 = {
     },
 
     clickReferralCode: function () {
-       Common.getFirstElement(By.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/div[5]/div[1]/div[1]/div/div/a')).click();  
+        Common.getFirstElement(By.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/div[5]/div[1]/div[1]/div/div/a')).click();
     },
 
     setReferralCode: function (rcode) {
@@ -42,17 +42,37 @@ exports.Step4 = {
         Common.getFirstElement(by.model('signup.contact.emailSubscribe'));
     },
 
-    submit : function() {
-        Common.getFirstElement(by.css('button[ng-click*="submit()"]')).click();
-    },
-
-    getOptions : function(){
+    getOptions: function () {
         var expiryYear = element(by.model('signup.contact.creditCardProfile.expiryYear')).all(by.tagName('option'));
         var expiryMonth = element(by.model('signup.contact.creditCardProfile.expiryMonth')).all(by.tagName('option'));
         var allOptions = element(by.model('signup.contact.howDidYouHearAboutUs')).all(by.tagName('option'));
         Common.getalloption(expiryYear);
         Common.getalloption(expiryMonth);
         Common.getalloption(allOptions);
+    },
+
+    consentAgreement: function () {
+        Common.getFirstElement(by.model('consent.msaConsent'));
+    },
+
+    consentAgreementbutton: function () {
+        Common.getFirstElement(by.id('consentAggremetBtn'));
+    },
+
+    populatedata: function () {
+        this.setCreditCard("41111111111111111");
+        this.SetCVV("3432");
+        Common.scrolldown();
+        this.clickReferralCode();
+        this.setReferralCode("TestAla");
+        this.AcceptReferralCode();
+        this.setSubscribe();
+        this.getOptions();
+    },
+
+    acceptconsent: function () {
+        this.consentAgreement();
+        this.consentAgreementbutton();
     }
 
 }    
