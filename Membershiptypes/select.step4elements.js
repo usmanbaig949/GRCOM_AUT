@@ -38,8 +38,9 @@ exports.Step4 = {
         Common.getFirstElement(by.model('signup.contact.howDidYouHearAboutUs')).click();
     },
 
-    setSubscribe: function () {
-        Common.getFirstElement(by.model('signup.contact.emailSubscribe'));
+    checkSubscribe: function () {
+        var checksubbox = Common.getFirstElement(by.css("[for='subscribe']"));
+        checksubbox.click();
     },
 
     getOptions: function () {
@@ -51,27 +52,33 @@ exports.Step4 = {
         Common.getalloption(allOptions);
     },
 
-    consentAgreement: function () {
-        Common.getFirstElement(by.model('consent.msaConsent'));
+    MSAconsent: function () {
+        var msabox = Common.getFirstElement(by.css("label[for='msaCheckBox']"));
+        msabox.click();
+    },
+
+    TIconsent: function () {
+        var tibox = Common.getFirstElement(by.css("label[for='travelInsuranceCheckBox']"));
+        tibox.click();
     },
 
     consentAgreementbutton: function () {
-        Common.getFirstElement(by.id('consentAggremetBtn'));
+        Common.getFirstElement(by.id('consentAggremetBtn')).click();
     },
 
     populatedata: function () {
-        this.setCreditCard("41111111111111111");
+        this.setCreditCard("4012888888881881");
         this.SetCVV("3432");
         Common.scrolldown();
         this.clickReferralCode();
         this.setReferralCode("TestAla");
         this.AcceptReferralCode();
-        this.setSubscribe();
         this.getOptions();
     },
 
     acceptconsent: function () {
-        this.consentAgreement();
+        this.MSAconsent();
+        this.TIconsent();
         this.consentAgreementbutton();
     }
 

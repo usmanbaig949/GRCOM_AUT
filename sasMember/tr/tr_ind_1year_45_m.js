@@ -16,22 +16,23 @@ exports.test = function () {
 
         it('should select travel plan successfully', function () {
             Common.loadSignupPage();
-            
-            Step1.selectMembership("TR-I-A1-45-X");            
+
+            Step1.selectMembership("TR-I-A1-45-X");
             Step1.setEmail("test.tr");
-            Common.submit();   
+            Common.submit();
 
             Step2.populatedata();
-            Common.submit();   
+            Common.submit();
 
             Step3.purchaseTI();
-            Common.submit();   
+            Common.submit();
 
             Step4.populatedata();
             Common.submit();
-            
             Step4.acceptconsent();
-        
-           });
+            
+            Common.browserwait();
+
+        });
     });
 }

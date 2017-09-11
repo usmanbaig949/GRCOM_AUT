@@ -41,7 +41,8 @@ exports.Step3 = {
     },
 
     setInterruptPolicy: function () {
-        Common.getFirstElement(by.model('signup.travelInsurance.isInterruptPolicyAllowed')).click();
+        var interruptpolicybox =  Common.getFirstElement(by.css("[for='interruptPolicy']"));
+        interruptpolicybox.click();
     },
 
     setTripCostforPrimaryMember: function (tripcost) {
@@ -56,6 +57,7 @@ exports.Step3 = {
     purchaseTI: function () {
         this.setTravelInsuranceYes();
         this.setReturnDate();
+        this.setInterruptPolicy();
         Common.scrolldown();
         this.setTripCostforPrimaryMember("1000");
         this.getQuote();
