@@ -16,17 +16,22 @@ exports.test = function () {
 
         it('should select travel plan successfully', function () {
             Common.loadSignupPage();
-
             Step1.selectMembership("TR-I-A1-45-X");
             Step1.setEmail("test.tr");
             Common.submit();
+        });
 
+        it('should populate member information successfully', function () {
             Step2.populatedata();
             Common.submit();
+        });
 
+        it('should purchase travel insurance successfully',function() {
             Step3.purchaseTI();
             Common.submit();
+        });
 
+        it('should buy membership successfully',function() {
             Step4.populatedata();
             Common.submit();
             Step4.acceptconsent();
