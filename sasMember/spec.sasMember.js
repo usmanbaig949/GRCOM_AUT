@@ -6,4 +6,4 @@ browser.driver.manage().window().maximize();
 browser.baseUrl = "http://gridstaging.globalrescue.com";
 
 tr_ind_1year_45_m.test();
-tr_ind_1year_45_s.test();
+//tr_ind_1year_45_s.test();

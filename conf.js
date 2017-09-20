@@ -1,3 +1,4 @@
+// Create Report
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 var today = new Date(),
     timeStamp = today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear() + ' ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getMilliseconds();

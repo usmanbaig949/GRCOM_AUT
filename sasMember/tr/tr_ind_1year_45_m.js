@@ -14,7 +14,7 @@ exports.test = function () {
 
     describe('Sign up as Member having Travel membership as individual, 1 year, 45 days and medical only', function () {
 
-        it('Testcase 1: should select travel plan successfully', function () {
+        it('Testcase 1: should select travel plan', function () {
             Common.loadSignupPage();
             expect(browser.getTitle()).toEqual('Sign Up | Step 1');
             Step1.selectMembership("TR-I-A1-45-X");
@@ -22,13 +22,13 @@ exports.test = function () {
             Common.submit();
         });
 
-        it('Testcase 2: should populate member information successfully', function () {
+        it('Testcase 2: should populate member information', function () {
             expect(browser.getTitle()).toEqual('Sign Up | Step 2');
             Step2.populatedata();
             Common.submit();
         });
 
-        it('Testcase 3: should get quote price successfully', function() {
+        it('Testcase 3: should successfully get quote price ', function() {
             expect(browser.getTitle()).toEqual('Sign Up | Step 3');
             Step3.purchaseTI();
             Common.submit();
