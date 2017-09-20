@@ -12,12 +12,12 @@ exports.test = function () {
 
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000000;
 
-    describe('Sign up as Member having Travel membership as individual, 1 year, 45 days and medical only', function () {
+    describe('Sign up as Member having Travel membership as individual, 1 year, 45 days, medical and security', function () {
 
         it('Testcase 1: should select travel plan successfully', function () {
             Common.loadSignupPage();
             expect(browser.getTitle()).toEqual('Sign Up | Step 1');
-            Step1.selectMembership("TR-I-A1-45-X");
+            Step1.selectMembership("TR-I-A1-45-S");
             Step1.setEmail("test.tr");
             Common.submit();
         });
@@ -40,7 +40,7 @@ exports.test = function () {
             Common.submit();
         });
 
-        it('Testcase 5: should buy membership successfully', function() { 
+        it('Testcase 5: should buy membership successfully', function() {   
             Step4.acceptconsent();
             
             Common.browserwait();

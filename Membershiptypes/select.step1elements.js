@@ -92,7 +92,7 @@ exports.Step1 = {
                         break;
                 }
 
-                if (security.toLowerCase() == 'm') {
+                if (security.toLowerCase() == 's') {
                     this.selectTravelSecurity();
                 }
             }

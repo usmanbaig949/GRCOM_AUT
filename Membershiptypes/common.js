@@ -33,7 +33,7 @@ exports.getaddress = function (text, index) {
 
 exports.getalloption = function (allOptions) {
     allOptions.count().then(function (numberOfItems) {
-        return Math.floor(Math.random() * numberOfItems) + 1;
+        return Math.floor(Math.random() * numberOfItems);
     }).then(function (randomNumber) {
         allOptions.get(randomNumber).click();
     });
