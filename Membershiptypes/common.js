@@ -49,5 +49,5 @@ exports.submit = function () {
 }
 
 exports.browserwait = function () {
-    browser.driver.sleep(20000);
+    browser.driver.sleep(18000);
 }

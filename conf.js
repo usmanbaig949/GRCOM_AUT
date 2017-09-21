@@ -1,12 +1,14 @@
 // Create Report
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 var today = new Date(),
-    timeStamp = today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear() + ' ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getMilliseconds();
+    timeStamp = today.getMonth() + 1 + '-' + today.getDate() + '-' + today.getFullYear() + ' ' + today.getHours() + ':' + today.getMinutes() + ':' + today.getSeconds();
 var reporter = new HtmlScreenshotReporter({
     dest: 'D:/projects/qa/automation/report', // a location to store screen shots.
     cleanDestination: true,
+    inlineImages: false,  
+    preserveDirectory: true,  
     showSummary: true,
-    showConfiguration: false,
+    showConfiguration: true,
     reportTitle: 'Automated Test Report for SS -- Test run on: ' + timeStamp,
     filename: 'Report.html'
 
