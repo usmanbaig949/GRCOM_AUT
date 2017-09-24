@@ -24,7 +24,7 @@ exports.Step2 = {
         var dd = todaydate.getDate();
         var mm = todaydate.getMonth() + 1;
         if (dd < 10) {
-            dd = '0' + dd
+            dd = '0' + dd;
         }
 
         if (mm < 10) {
@@ -63,5 +63,6 @@ exports.Step2 = {
         this.setSatellitephone();
         this.setFemalegender();
         this.setResidenceAddress(Common.getaddress("117 Milk St", 2));
-    },
+    
+    }
 };

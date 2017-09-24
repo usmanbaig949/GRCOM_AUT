@@ -26,7 +26,7 @@ exports.Step3 = {
         var dd = someDate.getDate();
         var mm = someDate.getMonth() + 1;
         if (dd < 10) {
-            dd = '0' + dd
+            dd = '0' + dd;
         }
 
         if (mm < 10) {

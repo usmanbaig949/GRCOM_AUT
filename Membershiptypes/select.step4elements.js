@@ -62,9 +62,25 @@ exports.Step4 = {
         tibox.click();
     },
 
+    TCconsent: function () {
+        var tcbox = Common.getFirstElement(by.css("label[for='totalCareCheckBox']"));
+        tcbox.click();
+    },
+
+    GoGreen: function () {
+        var gobox = Common.getFirstElement(by.css("label[for='go-green']"));
+        gbox.click();
+    },
+
+    Subscribe: function () {
+        var subscribebox = Common.getFirstElement(by.css("label[for='subscribe']"));
+        subscribebox.click();
+    },
+
     consentAgreementbutton: function () {
         Common.getFirstElement(by.id('consentAggremetBtn')).click();
     },
+
 
     populatedata: function () {
         this.setCreditCard("4012888888881881");
@@ -74,6 +90,7 @@ exports.Step4 = {
         this.setReferralCode("TestAla");
         this.AcceptReferralCode();
         this.getOptions();
+        this.Subscribe();
     },
 
     acceptconsent: function () {

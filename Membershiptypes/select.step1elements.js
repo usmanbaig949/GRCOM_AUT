@@ -3,7 +3,7 @@ var Common = require('./common.js');
 exports.Step1 = {
 
     setEmail: function (emailPrefix) {
-        Common.getFirstElement(by.model('signup.contact.email')).sendKeys(emailPrefix + Common.getRandomNum(1, 1000) + "@automation.com");
+        Common.getFirstElement(by.model('signup.contact.email')).sendKeys(emailPrefix + Common.getRandomNum(1, 100000) + "@automation.com");
     },
 
     selectMembership: function (membership) {
@@ -11,7 +11,7 @@ exports.Step1 = {
         var memDetail = membership.split("-");
 
         var membership = memDetail[0];
-        var type = memDetail[1];
+        var type = memDetail[1];       
         var term = memDetail[2];
         var tripOrPlan = memDetail[3]; //trip in case of travel, plan in case of totalcare
         var security = memDetail[4];
@@ -87,7 +87,7 @@ exports.Step1 = {
                     }
                         break;
                     case "365": {
-                        this.selectTravel4YearTerm();
+                        this.selectTravel365DaysTrip();
                     }
                         break;
                 }
@@ -298,6 +298,16 @@ exports.Step1 = {
 
     selectTravelSecurity: function () {
         Common.getFirstElement(by.css('button[ng-click*="changeCoverage()"]')).click();
+    },
+
+    selectpaymonthly: function () {
+        var paymonthlybox = Common.getFirstElement(by.css("label[for='pay-monthly']"));
+        paymonthlybox.click();
+    },
+
+    unselectautorenew: function () {
+        var autorenewbox = Common.getFirstElement(by.css("label[for='auto-renew-travel']"));
+        autorenewbox.click();
     },
 
 };
