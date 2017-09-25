@@ -45,7 +45,7 @@ browser.driver.manage().window().maximize();
 
 browser.baseUrl = "http://gridstaging.globalrescue.com";
 
-//Travel Memberships for individual
+//--------------------------------Travel Memberships for individual------------------------------------
 tr_ind_1year_45_m.test();
 // tr_ind_1year_45_s.test();
 // tr_ind_1year_90_m.test();
@@ -88,5 +88,8 @@ tr_ind_1year_45_m.test();
 // tr_ind_5year_365_s.test();
 
 
-// TotalCare Memberships
-tc_silver_ind_1year.test();
+//----------------------------------------- TotalCare Memberships for Individual --------------------------------------
+//tc_silver_ind_1year.test();
+
+
+

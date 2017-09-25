@@ -3,14 +3,25 @@ var Common = require('./common.js');
 exports.Step2 = {
 
     setFirstName: function () {
+        Common.getFirstElement(by.model('signup.contact.firstName')).clear();
         Common.getFirstElement(by.model('signup.contact.firstName')).sendKeys("Test");
     },
 
+    setdigitinFirstName: function () {
+        Common.getFirstElement(by.model('signup.contact.firstName')).sendKeys("1");
+    },
+
     setLastName: function () {
+        Common.getFirstElement(by.model('signup.contact.lastName')).clear();
         Common.getFirstElement(by.model('signup.contact.lastName')).sendKeys("Automation");
     },
 
+    setdigitInLastName: function () {
+        Common.getFirstElement(by.model('signup.contact.lastName')).sendKeys("!@#$%");
+    },
+
     setPhonenumber: function () {
+        Common.getFirstElement(by.model('signup.tempPrimaryPhone')).clear();
         Common.getFirstElement(by.model('signup.tempPrimaryPhone')).sendKeys("6174594200");
     },
 

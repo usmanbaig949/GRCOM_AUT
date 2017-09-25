@@ -3,7 +3,16 @@ var Common = require('./common.js');
 exports.Step1 = {
 
     setEmail: function (emailPrefix) {
+        Common.getFirstElement(by.model('signup.contact.email')).clear();
         Common.getFirstElement(by.model('signup.contact.email')).sendKeys(emailPrefix + Common.getRandomNum(1, 100000) + "@automation.com");
+    },
+
+    setAlreadyinEmail: function () {
+        Common.getFirstElement(by.model('signup.contact.email')).sendKeys("akarim@globalrescue.com");
+    },
+
+    CloseUniqueEmailPopup: function () {
+        Common.getFirstElement(by.css('[ng-click="cancel()"]')).click();
     },
 
     selectMembership: function (membership) {
