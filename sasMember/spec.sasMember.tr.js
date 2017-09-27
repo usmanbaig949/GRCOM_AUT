@@ -39,7 +39,6 @@ var tr_ind_5year_180_s = require('../sasMember/tr/Individual/tr_ind_5year_180_s.
 var tr_ind_5year_365_m = require('../sasMember/tr/Individual/tr_ind_5year_365_m.js');
 var tr_ind_5year_365_s = require('../sasMember/tr/Individual/tr_ind_5year_365_s.js');
 
-var tc_silver_ind_1year = require('../sasMember/tc/tc_silver_ind_1year.js');
 
 browser.driver.manage().window().maximize();
 
@@ -86,10 +85,6 @@ tr_ind_1year_45_m.test();
 // tr_ind_5year_180_s.test();
 // tr_ind_5year_365_m.test();
 // tr_ind_5year_365_s.test();
-
-
-//----------------------------------------- TotalCare Memberships for Individual --------------------------------------
-//tc_silver_ind_1year.test();
 
 
 

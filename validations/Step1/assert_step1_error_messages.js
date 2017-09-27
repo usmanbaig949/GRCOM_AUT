@@ -14,7 +14,7 @@ exports.test = function () {
 
     describe('Assertion of all error messages in Step 1', function () {
 
-        it('Testcase 1: should assert page title ', function () {
+        it('Testcase 1: should assert Step 1 page title ', function () {
             Common.loadSignupPage();
             expect(browser.getTitle()).toEqual('Sign Up | Step 1');
         });

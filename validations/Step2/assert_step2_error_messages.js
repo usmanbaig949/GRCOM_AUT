@@ -25,7 +25,7 @@ exports.test = function () {
             Common.submit();
         });
 
-        it('Testcase 3: should populate member information', function () {
+        it('Testcase 3: should assert Step 2 page title', function () {
             expect(browser.getTitle()).toEqual('Sign Up | Step 2');
             Common.submit();
         });
@@ -80,12 +80,58 @@ exports.test = function () {
             expect(minmax.getText()).toEqual('Phone number should be between 5 - 16 digits.');
         });
 
-        it ('Testcase 12: Should check phone number not valid ', function () {
+        it ('Testcase 13: Should check phone number is not valid ', function () {
             Common.getFirstElement(by.model('signup.tempPrimaryPhone')).clear();
             Common.getFirstElement(by.model('signup.tempPrimaryPhone')).sendKeys("34543");
             var invalid = Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/div[2]/div/div[3]/div/div[2]/span'));
             expect(invalid.getText()).toEqual('Phone Number is not valid');
         });
 
+        it ('Testcase 14: Should check DOB is invalid ', function () {
+            Common.getFirstElement(by.model('signup.contact.displayDob')).clear();
+            Common.getFirstElement(by.model('signup.contact.displayDob')).sendKeys("77887656");
+            Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div')).click();
+            var dbirth = Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/div[2]/div/div[5]/div/div[2]/div'));
+            expect(dbirth.getText()).toEqual('You have entered an invalid date. (MM/DD/YYYY)');
+        });
+
+        it ('Testcase 16: Should check DOB cannot be in future ', function () {
+            Common.getFirstElement(by.model('signup.contact.displayDob')).clear();
+            Common.getFirstElement(by.model('signup.contact.displayDob')).sendKeys("06/26/2018");
+            Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div')).click();
+            var fdbirth = Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/div[2]/div/div[5]/div/div[2]/div'));
+            expect(fdbirth.getText()).toEqual('Date of birth cannot be in the future.');
+        });
+
+        it ('Testcase 15: Should check membership start date is invalid ', function () {
+            Common.getFirstElement(by.model('signup.contract.displayMembershipStartDate')).clear();
+            Common.getFirstElement(by.model('signup.contract.displayMembershipStartDate')).sendKeys("334446666");
+            Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div')).click();
+            var sdate = Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/div[2]/div/div[6]/div/div[2]/div'));
+            expect(sdate.getText()).toEqual('You have entered an invalid date. (MM/DD/YYYY)');
+        });
+
+        it ('Testcase 17: Should check membership start date cannot be in past ', function () {
+            Common.getFirstElement(by.model('signup.contract.displayMembershipStartDate')).clear();
+            Common.getFirstElement(by.model('signup.contract.displayMembershipStartDate')).sendKeys("06/26/2017");
+            Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div')).click();
+            var msdate = Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/div[2]/div/div[6]/div/div[2]/div'));
+            expect(msdate.getText()).toEqual('Membership Start Date cannot be in the past.');
+        });
+
+        it ('Testcase 18: Should check address should be selected from dropdown ', function () {
+            Common.getFirstElement(by.model('addressObject.selectedAddress')).clear();
+            Common.getFirstElement(by.model('addressObject.selectedAddress')).sendKeys("testing in progress");
+            var addressdropdown = Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/ng-form/address/ng-form/div/div[1]/div/div/div'));
+            expect(addressdropdown.getText()).toEqual('Select value from dropdown');
+        });
+
+        it ('Testcase 19: Should check zip code is mandatory ', function () {
+            Common.getFirstElement(by.model('addressObject.selectedAddress')).clear();
+            Step2.setResidenceAddress(Common.getaddress("Ca", 3));
+            Common.submit();
+            var zipcode = Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div/div[1]/div[1]/div/ng-form/address/ng-form/div/div[2]/div/div/div'));
+            expect(zipcode.getText()).toEqual('Zip Code is mandatory. Please enter a value');
+        });
     });
 }
