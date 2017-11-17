@@ -20,10 +20,9 @@ exports.config = {
     seleniumServerJar: 'C:/Users/akarim/workspace/protractor_AnjularJS/node_modules/selenium/selenium-server-standalone-3.4.0.jar',
    
     suites: {
-    sasMemberTR: 'sasMember/spec.sasMember.tr.js', 
-   // sasMemberTC: 'sasMember/spec.sasMember.tc.js',
-    validations: 'validations/spec.validations.js',
-
+     sasMemberTR: 'sasMember/spec.sasMember.tr.js', 
+    // sasMemberTC: 'sasMember/spec.sasMember.tc.js',
+    // validations: 'validations/spec.validations.js'
     },
 
     // Setup the report before any tests start
@@ -54,11 +53,14 @@ exports.config = {
 
     capabilities: {
         browserName: 'chrome',
+    //    shardTestFiles: true,
+    //    maxInstances: 2,
         chromeOptions: {
             args: [
                 '--start-maximized'
             ]
-        }
+        },
+        
     }
 
     /*multiCapabilities: [{

@@ -46,12 +46,22 @@ exports.Step3 = {
     },
 
     setTripCostforPrimaryMember: function (tripcost) {
-        Common.getFirstElement(by.xpath('//*[@id="memberTripCost"]')).click();
-        Common.getFirstElement(by.xpath('//*[@id="memberTripCost"]')).sendKeys(tripcost);
+        var tripP = Common.getFirstElement(by.xpath('//*[@id="travel-insurance-yes"]/ng-form[1]/div/div/div/div/div/table/tbody/tr[1]/td[3]/div'));
+        tripP.click();
+        browser.driver.actions().mouseDown(tripP).click().sendKeys(tripcost).perform();
+        //tripP.sendKeys(tripcost);
+    },                    
+
+    setTripcostforMember1: function (tripcost1) {
+        var tripM1 = Common.getFirstElement(by.xpath('//*[@id="travel-insurance-yes"]/ng-form[1]/div/div/div/div/div/table/tbody/tr[2]/td[3]/div'));
+        tripM1.click();
+        browser.driver.actions().mouseDown(tripM1).click().sendKeys(tripcost1).perform();
+
     },
 
     getQuote: function () {
         Common.getFirstElement(by.xpath('//*[@id="enrollment-section"]/div/div')).click();
+
     },
 
     purchaseTI: function () {
@@ -59,7 +69,9 @@ exports.Step3 = {
         this.setReturnDate();
         this.setInterruptPolicy();
         Common.scrolldown();
+        browser.driver.sleep(3000);
         this.setTripCostforPrimaryMember("1000");
+        this.setTripcostforMember1("500");
         this.getQuote();
     },
 }

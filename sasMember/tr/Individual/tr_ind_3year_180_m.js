@@ -18,31 +18,34 @@ exports.test = function () {
             Common.loadSignupPage();
             expect(browser.getTitle()).toEqual('Sign Up | Step 1');
             Step1.selectMembership("TR-I-A3-180-X");
-            Step1.setEmail("test.tr");
+        });
+
+        it('Testcase 2: should pick unique email address', function () {
+            Step1.setEmail();
             Common.submit();
         });
 
-        it('Testcase 2: should populate member information', function () {
+        it('Testcase 3: should populate member information', function () {
             expect(browser.getTitle()).toEqual('Sign Up | Step 2');
             Step2.populatedata();
             Common.submit();
         });
 
-        it('Testcase 3: should successfully get quote price ', function() {
+        it('Testcase 4: should successfully get quote price ', function () {
             expect(browser.getTitle()).toEqual('Sign Up | Step 3');
             Step3.purchaseTI();
             Common.submit();
         });
 
-        it('Testcase 4: should checkout successfully', function() {
+        it('Testcase 5: should checkout successfully', function () {
             expect(browser.getTitle()).toEqual('Sign Up | Step 4');
             Step4.populatedata();
             Common.submit();
         });
 
-        it('Testcase 5: should buy membership successfully', function() { 
+        it('Testcase 6: should buy membership successfully', function () {
             Step4.acceptconsent();
-            
+
             Common.browserwait();
 
         });

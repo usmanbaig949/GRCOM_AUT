@@ -39,7 +39,7 @@ exports.test = function () {
         });
 
         it('Testcase 5: should pick unique email address', function () {
-            Step1.setEmail("test.tr");
+            Step1.setEmail();
             Common.submit();
         });
 

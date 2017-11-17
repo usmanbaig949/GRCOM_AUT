@@ -8,6 +8,8 @@ var Step3 = require('../../Membershiptypes/select.step3elements.js').Step3;
 
 var Step4 = require('../../Membershiptypes/select.step4elements.js').Step4;
 
+var faker= require('faker');
+
 exports.test = function () {
 
     jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000000;
@@ -21,7 +23,7 @@ exports.test = function () {
         });
 
         it('Testcase 2: should pick unique email address', function () {
-            Step1.setEmail("test.tr");
+            Step1.setEmail();
             Common.submit();
         });
 

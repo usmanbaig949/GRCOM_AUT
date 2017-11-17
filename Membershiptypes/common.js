@@ -40,7 +40,7 @@ exports.getalloption = function (allOptions) {
 }
 
 exports.scrolldown = function () {
-    browser.executeScript('window.scrollTo(508,686);');
+    browser.executeScript('window.scrollTo(511,598);');
 
 }
 
@@ -51,3 +51,4 @@ exports.submit = function () {
 exports.browserwait = function () {
     browser.driver.sleep(18000);
 }
+

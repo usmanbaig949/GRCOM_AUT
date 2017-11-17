@@ -18,7 +18,7 @@ exports.test = function () {
             Common.loadSignupPage();
             expect(browser.getTitle()).toEqual('Sign Up | Step 1');
             Step1.selectMembership("TC-I-A1-S-X");
-            Step1.setEmail("test.tc");
+            Step1.setEmail();
             Common.submit();
         });
 

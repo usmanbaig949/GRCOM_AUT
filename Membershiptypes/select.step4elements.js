@@ -1,9 +1,11 @@
 var Common = require('./common.js');
+var creditcardGenerator = require("creditcard-generator");
 
 exports.Step4 = {
 
-    setCreditCard: function (CCNum) {
-        Common.getFirstElement(by.model('signup.contact.creditCardProfile.creditCardNumber')).sendKeys(CCNum);
+    setCreditCard: function () {
+       // var CCNum = creditcardGenerator.GenCC("visa");
+        Common.getFirstElement(by.model('signup.contact.creditCardProfile.creditCardNumber')).sendKeys("4012888888881881");
     },
 
     SetCCExpiryMonth: function () {
@@ -14,8 +16,8 @@ exports.Step4 = {
         Common.getFirstElement(by.model('signup.contact.creditCardProfile.expiryYear')).click();
     },
 
-    SetCVV: function (cvv) {
-        Common.getFirstElement(by.model('signup.contact.creditCardProfile.creditCardCcv')).sendKeys(cvv);
+    SetCVV: function () {
+        Common.getFirstElement(by.model('signup.contact.creditCardProfile.creditCardCcv')).sendKeys(Common.getRandomNum(100,999));
     },
 
     clickReferralCode: function () {
@@ -69,7 +71,7 @@ exports.Step4 = {
 
     GoGreen: function () {
         var gobox = Common.getFirstElement(by.css("label[for='go-green']"));
-        gbox.click();
+        gobox.click();
     },
 
     Subscribe: function () {
@@ -83,8 +85,8 @@ exports.Step4 = {
 
 
     populatedata: function () {
-        this.setCreditCard("4012888888881881");
-        this.SetCVV("3432");
+        this.setCreditCard();
+        this.SetCVV();
         Common.scrolldown();
         this.clickReferralCode();
         this.setReferralCode("TestAla");
@@ -93,9 +95,22 @@ exports.Step4 = {
         this.Subscribe();
     },
 
+    populatedataWithoutRP: function () {
+        this.setCreditCard();
+        this.SetCVV();
+        Common.scrolldown();
+        this.getOptions();
+        this.Subscribe();
+    },
+
     acceptconsent: function () {
         this.MSAconsent();
         this.TIconsent();
+        this.consentAgreementbutton();
+    },
+
+    acceptconsentwithoutTI: function () {
+        this.MSAconsent();
         this.consentAgreementbutton();
     }
 

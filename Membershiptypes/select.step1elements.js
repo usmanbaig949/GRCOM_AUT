@@ -1,10 +1,12 @@
 var Common = require('./common.js');
+var faker = require('faker');
 
 exports.Step1 = {
 
-    setEmail: function (emailPrefix) {
+    setEmail: function () {
+        var randomEmail = faker.internet.email();
         Common.getFirstElement(by.model('signup.contact.email')).clear();
-        Common.getFirstElement(by.model('signup.contact.email')).sendKeys(emailPrefix + Common.getRandomNum(1, 100000) + "@automation.com");
+        Common.getFirstElement(by.model('signup.contact.email')).sendKeys(randomEmail);
     },
 
     setAlreadyinEmail: function () {
