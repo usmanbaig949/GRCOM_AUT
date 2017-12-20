@@ -77,6 +77,7 @@ exports.Step3 = {
     },
     
     purchaseTIforMembers: function () {
+        
         this.setTravelInsuranceYes();
         this.setReturnDate();
         this.setInterruptPolicy();
