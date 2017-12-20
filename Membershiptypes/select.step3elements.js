@@ -75,6 +75,7 @@ exports.Step3 = {
         this.getQuote();
     },
 
+    
     purchaseTIforMembers: function () {
         this.setTravelInsuranceYes();
         this.setReturnDate();
