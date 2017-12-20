@@ -70,6 +70,17 @@ exports.Step3 = {
         this.setTravelInsuranceYes();
         this.setReturnDate();
         this.setInterruptPolicy();
+        //Common.scrolldown();
+        browser.driver.sleep(3000);
+        this.setTripCostforPrimaryMember("1000");
+        this.getQuote();
+    },
+
+    
+    purchaseTIforMembers: function () {
+        this.setTravelInsuranceYes();
+        this.setReturnDate();
+        this.setInterruptPolicy();
        // Common.scrolldown();
         browser.driver.sleep(3000);
         this.setTripCostforPrimaryMember("1000");
