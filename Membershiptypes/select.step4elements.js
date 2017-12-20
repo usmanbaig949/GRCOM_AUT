@@ -1,5 +1,5 @@
 var Common = require('./common.js');
-var creditcardGenerator = require("creditcard-generator");
+//var creditcardGenerator = require("creditcard-generator");
 
 exports.Step4 = {
 
@@ -111,13 +111,6 @@ exports.Step4 = {
 
     acceptconsentwithoutTI: function () {
         this.MSAconsent();
-        this.consentAgreementbutton();
-    },
-
-    acceptconsentwithTC: function () {
-        this.MSAconsent();
-        this.TIconsent();
-        this.TCconsent();
         this.consentAgreementbutton();
     }
 
