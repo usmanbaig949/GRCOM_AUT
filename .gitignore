@@ -7,6 +7,7 @@
 
 # dependencies
 /src/main/webapp/node_modules
+/src/main/webapp/report
 
 # misc
 /src/main/webapp/.sass-cache
