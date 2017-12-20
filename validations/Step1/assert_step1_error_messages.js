@@ -31,7 +31,7 @@ exports.test = function () {
         });
 
         it('Testcase 4: should assert email already exist in system',function () {
-            Step1.setAlreadyinEmail();
+            Step1.setAlreadyinuseEmail();
             Common.submit();
             var unique = Common.getFirstElement(by.xpath('/html/body/div[1]/div/div/form/div[1]/div[1]/div'));
             expect(unique.getText()).toEqual('Please login and click "Purchase New Membership" button from self care portal.');

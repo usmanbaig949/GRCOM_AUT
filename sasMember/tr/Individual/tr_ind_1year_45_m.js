@@ -44,8 +44,7 @@ exports.test = function () {
         });
 
         it('Testcase 6: should buy membership successfully', function() { 
-            Step4.acceptconsent();
-            
+            Step4.acceptconsent();           
             Common.browserwait();
 
         });

@@ -43,7 +43,7 @@ exports.test = function () {
 
         it('Testcase 6: should checkout successfully', function() {
             expect(browser.getTitle()).toEqual('Sign Up | Step 4');
-            Step4.populatedata();
+            Step4.purchaseTIforMembers();
             Common.submit();
         });
 

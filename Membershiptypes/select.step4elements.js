@@ -112,6 +112,13 @@ exports.Step4 = {
     acceptconsentwithoutTI: function () {
         this.MSAconsent();
         this.consentAgreementbutton();
+    },
+
+    acceptconsentwithTC: function () {
+        this.MSAconsent();
+        this.TIconsent();
+        this.TCconsent();
+        this.consentAgreementbutton();
     }
 
 }    

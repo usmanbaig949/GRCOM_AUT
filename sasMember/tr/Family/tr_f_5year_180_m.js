@@ -37,7 +37,7 @@ exports.test = function () {
 
         it('Testcase 5: should successfully get quote price ', function() {
             expect(browser.getTitle()).toEqual('Sign Up | Step 3');
-            Step3.purchaseTI();
+            Step3.purchaseTIforMembers();
             Common.submit();
         });
 

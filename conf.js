@@ -1,3 +1,4 @@
+
 // Create Report
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
 var today = new Date(),
@@ -16,12 +17,12 @@ var reporter = new HtmlScreenshotReporter({
 
 exports.config = {
     framework: 'jasmine',
-    seleniumAddress: 'http://localhost:4444/wd/hub',
-    seleniumServerJar: 'C:/Users/akarim/workspace/protractor_AnjularJS/node_modules/selenium/selenium-server-standalone-3.4.0.jar',
+    //seleniumAddress: 'http://localhost:4444/wd/hub',
+    //seleniumServerJar: 'C:/Users/akarim/workspace/protractor_AnjularJS/node_modules/selenium/selenium-server-standalone-3.4.0.jar',
    
     suites: {
-     sasMemberTR: 'sasMember/spec.sasMember.tr.js', 
-    // sasMemberTC: 'sasMember/spec.sasMember.tc.js',
+    // sasMemberTR: 'sasMember/spec.sasMember.tr.js', 
+    sasMemberTC: 'sasMember/spec.sasMember.tc.js',
     // validations: 'validations/spec.validations.js'
     },
 

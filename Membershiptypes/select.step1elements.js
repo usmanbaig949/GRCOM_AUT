@@ -1,5 +1,7 @@
 var Common = require('./common.js');
 var faker = require('faker');
+var log4js = require("log4js");
+var logger = log4js.getLogger();
 
 exports.Step1 = {
 
@@ -7,9 +9,10 @@ exports.Step1 = {
         var randomEmail = faker.internet.email();
         Common.getFirstElement(by.model('signup.contact.email')).clear();
         Common.getFirstElement(by.model('signup.contact.email')).sendKeys(randomEmail);
+        logger.info('email is', randomEmail);
     },
 
-    setAlreadyinEmail: function () {
+    setAlreadyinuseEmail: function () {
         Common.getFirstElement(by.model('signup.contact.email')).sendKeys("akarim@globalrescue.com");
     },
 
