@@ -75,7 +75,6 @@ exports.Step3 = {
         this.setTripCostforPrimaryMember("1000");
         this.getQuote();
     },
-
     
     purchaseTIforMembers: function () {
         this.setTravelInsuranceYes();
